@@ -59,6 +59,19 @@ class SinglyLinkedList{
     return curHead;
   }
 
+  unshift(val){
+    let newNode = new Node(val);
+    
+    if(!this.head){
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 
 }
 
@@ -70,4 +83,6 @@ list.push(12);
 list.push(13);
 list.pop();
 list.shift();
-console.log(list) ;
+list.unshift(10);
+
+console.log(list);
