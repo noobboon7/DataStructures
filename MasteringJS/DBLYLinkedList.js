@@ -30,18 +30,34 @@ class DoublyLinkedList {
 
   pop(){
     if(!this.head) return undefined;
-    let tail = this.tail;
+    let oldTail = this.tail;
 
     if(this.length === 1){
       this.head = null;
       this.tail = null;
     }else {
-      this.tail = tail.prev;
+      this.tail = oldTail.prev;
       this.tail.next = null;
-      tail.prev = null;
+      oldTail.prev = null;
     }
     this.length--;
-    return tail;
+    return oldTail;
+  }
+
+  shift(){
+    if (!this.head) return undefined;
+    let oldHead = this.head;
+    
+    if(this.length === 1){
+      this.head = null;
+      this.tail = null;
+    }else {
+      this.head = oldHead.next;
+      this.head.prev = null;
+      oldHead.next = null; 
+    }
+    this.length--;
+    return oldHead
   }
 
 }
@@ -54,5 +70,6 @@ list.push(4);
 list.push(5);
 list.pop();
 list.pop();
+list.shift();
 
 console.log(list);
