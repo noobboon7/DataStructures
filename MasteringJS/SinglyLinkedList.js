@@ -86,7 +86,7 @@ class SinglyLinkedList{
     return curNode;
   }
 
-  set(val, idx){
+  set(idx, val){
     let setNode = this.get(idx);
     return setNode ? setNode.val = val : false;
   }
@@ -106,7 +106,18 @@ class SinglyLinkedList{
     return true;
   }
 
-  
+  remove(idx){
+    if (idx < 0 || idx >= this.length) return undefined;
+    if (idx === this.length - 1) return this.pop();
+    if (idx === 0) return this.shift();
+
+    let prev = this.get(idx -1),
+      rmvd = prev.next;
+
+    prev.next = rmvd.next;
+    this.length--;
+    return rmvd;
+  }
 
 }
 
@@ -124,7 +135,8 @@ list.push(15);
 list.push(16);
 // list.get(4);
 // console.log(list.insert(1, "Hello"));
-// console.log(list.remove(1, "Hello"));
+// console.log(list.remove(5));
+// console.log(list.remove(1));
 
 
 console.log(list);
