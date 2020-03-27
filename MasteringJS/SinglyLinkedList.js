@@ -73,6 +73,19 @@ class SinglyLinkedList{
     return this;
   }
 
+  get(idx){
+    if(idx < 0 || idx >= this.length) return null;
+
+    let count = idx,
+    curNode = this.head;
+
+    while(count > 0){
+      count--;
+      curNode = curNode.next;
+    }
+    return curNode;
+  }
+
 }
 
 const list = new SinglyLinkedList();
@@ -83,6 +96,12 @@ list.push(12);
 list.push(13);
 list.pop();
 list.shift();
-list.unshift(10);
+list.unshift(7);
+list.push(14);
+list.push(15);
+list.push(16);
+list.get(4);
+console.log( list.get(0));
+
 
 console.log(list);
