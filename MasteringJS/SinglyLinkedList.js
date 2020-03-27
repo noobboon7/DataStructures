@@ -86,6 +86,11 @@ class SinglyLinkedList{
     return curNode;
   }
 
+  set(val, idx){
+    let setNode = this.get(idx);
+    return setNode ? setNode.val = val : false;
+  }
+
 }
 
 const list = new SinglyLinkedList();
@@ -100,8 +105,8 @@ list.unshift(7);
 list.push(14);
 list.push(15);
 list.push(16);
-list.get(4);
-console.log( list.get(0));
+// list.get(4);
+console.log(list.set("hello", 7));
 
 
 console.log(list);
