@@ -99,6 +99,11 @@ class DoublyLinkedList {
      return cur;
    }
 
+    set(idx, val){
+      let node = this.get(idx);
+      return node ? (node.val = val, true) :  false;
+    }
+
 }
 const list = new DoublyLinkedList();
 
@@ -116,5 +121,6 @@ list.push(9);
 // list.shift();
 list.unshift(0);
 // console.log(list.get(7));
+console.log(list.set(1, 'Hello'));
  
 console.log(list);

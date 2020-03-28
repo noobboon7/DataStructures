@@ -88,7 +88,7 @@ class SinglyLinkedList{
 
   set(idx, val){
     let setNode = this.get(idx);
-    return setNode ? setNode.val = val : false;
+    return setNode ? (setNode.val = val, true) : false;
   }
 
   insert(idx, val){
