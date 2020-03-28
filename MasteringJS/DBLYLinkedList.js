@@ -105,13 +105,13 @@ class DoublyLinkedList {
 	}
 
 	insert(idx, val) {
-		if (idx < 0 || idx >= this.length) return false;
-    if (idx === 0) return !!this.unshift(newNode);
-    if (idx === this.length) return !!this.push(newNode);
-
-		let prevNode = this.get(idx - 1),
-			nextNode = prevNode.next,
-			newNode = new Node(val);
+    if (idx < 0 || idx > this.length) return false;
+    if (idx === 0) return !!this.unshift(val);
+    if (idx === this.length) return !!this.push(val);
+    
+    let newNode = new Node(val),
+    prevNode = this.get(idx - 1),
+    nextNode = prevNode.next;
 
     prevNode.next = newNode;
     nextNode.prev = newNode;
@@ -139,5 +139,5 @@ list.push(9);
 list.unshift(0);
 // console.log(list.get(7));
 // console.log(list.set(1, 'Hello'));
-list.insert(1, "helloNode");
+list.insert(10, "helloNode");
 console.log(list);
