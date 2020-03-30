@@ -93,14 +93,39 @@ class BinarySearchTree {
     let data = [];      //moves all the way down one branch then the next in order 
 
     function traverse(node){
-      data.push(node.value);
+      data.push(node);
       if(node.left) traverse(node.left);
       if(node.right) traverse(node.right); 
     }
      
     traverse(this.root);
     return data;
-  }
+	}
+
+  DFSPostOrder(){        //Depth first search -- PostOrder
+    let data = [];      			//moves all the way down one side of a branch and 
+															//add the ends of the branch first and then
+    function traverse(node){   //the moves back up the branch adding the node going up to the root      		
+			if(node.left) traverse(node.left);		
+      if(node.right) traverse(node.right); 	
+      data.push(node);
+    }
+     
+    traverse(this.root);
+    return data;
+	}
+	
+	DFSInOrder(){  			//Depth first search -- InOrder 
+		let data = [];    //starting from bottom branch, gets all nodes from left, then right   
+
+		function traverse(node){       		
+			if(node.left) traverse(node.left);		
+			data.push(node);
+			if(node.right) traverse(node.right); 	
+		}
+		traverse(this.root);
+		return data;
+	}
 }
 
 const tree = new BinarySearchTree();
@@ -116,6 +141,6 @@ tree.insert(23);
 tree.insert(2);
 tree.insert(7);
 // console.log(tree.BFS());
-console.log(tree.DFSPreOrder());
+console.log(tree.DFSInOrder());
 
 console.log(tree);
