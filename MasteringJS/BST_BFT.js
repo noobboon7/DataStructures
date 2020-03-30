@@ -89,7 +89,18 @@ class BinarySearchTree {
     return visited;
   }
 
+  DFSPreOrder(){        //Depth first search -- PreOrder 
+    let data = [];      //moves all the way down one branch then the next in order 
 
+    function traverse(node){
+      data.push(node.value);
+      if(node.left) traverse(node.left);
+      if(node.right) traverse(node.right); 
+    }
+     
+    traverse(this.root);
+    return data;
+  }
 }
 
 const tree = new BinarySearchTree();
@@ -105,6 +116,6 @@ tree.insert(23);
 tree.insert(2);
 tree.insert(7);
 // console.log(tree.BFS());
-// console.log(tree.DFS());
+console.log(tree.DFSPreOrder());
 
 console.log(tree);
