@@ -57,7 +57,21 @@ class BinarySearchTree{
   }
 
   contains(val){
+    if (!this.root) return false;
 
+    let cur = this.root,
+      found = false;
+
+    while (cur && !found) {
+      if (val < cur.value) {
+        cur = cur.left;
+      } else if (val > cur.value) {
+        cur = cur.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
 
 }
