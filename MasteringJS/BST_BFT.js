@@ -77,7 +77,8 @@ class BinarySearchTree {
   BFS(){             //Breath frist search 
     let queue = [],
         visited = [],
-        cur = this.root;
+				cur = this.root;
+				
     queue.push(cur);
 
     while(queue.length){
