@@ -1,5 +1,5 @@
 class HashTable {
-  constructor(size =5){
+  constructor(size =53){
     this.keyMap = new Array(size);
   }
 
@@ -36,17 +36,52 @@ class HashTable {
     }
     return undefined;
   }
+  
+  keys(){
+    let keyArr = []; 
+
+    this.keyMap.forEach(pos => {
+			if(pos.length > 1) {
+				pos.forEach(subArr => {
+					keyArr.push(subArr[0]);
+				});
+			} else if(pos) {
+				keyArr.push(pos[0][0]);
+			}
+		});
+		return keyArr;    
+  }
+
+  values(){
+    let valArr = [];
+
+    this.keyMap.forEach(pos => {
+      if(pos.length > 1){
+        pos.forEach(subArr => {
+          valArr.push(subArr[1]);
+        });
+      }else if(pos){
+        valArr.push(pos[0][1]);
+      }
+    });
+    return valArr;
+  }
 }
 
 const hash = new HashTable();
-hash.set('pudding', 6);
+hash.set('pudding', 2);
 hash.set('banana', 6);
 hash.set('apple', 8);
-hash.set('meat', 4);
-hash.set('tea', 4);
-hash.set('tomato', 4);
-hash.set('fish', 4);
-console.log(hash.get("apple"));
+hash.set('meat', 3);
+hash.set('tea', 12);
+hash.set('tomato', 5);
+hash.set('fish', 3);
+hash.set('juice',4);
+hash.set('ramen', 10);
+// console.log(hash.get("apple"));
+console.log(hash.values());
+console.log(hash.keys());
+// hash.values();
 
 console.log(hash);
 
