@@ -15,8 +15,8 @@ class HashTable {
 		}
 		return total;
   }
-
-  set(key, val){
+ 
+  set(key, val){                //add condition that alerts the user about duplicate keys
     const idx = this.hash(key);
     
     if(!this.keyMap[idx]){
@@ -43,7 +43,7 @@ class HashTable {
     this.keyMap.forEach(pos => {
 			if(pos.length > 1) {
 				pos.forEach(subArr => {
-					keyArr.push(subArr[0]);
+					if (!keyArr.includes(subArr[0])) keyArr.push(subArr[0]);
 				});
 			} else if(pos) {
 				keyArr.push(pos[0][0]);
@@ -56,9 +56,9 @@ class HashTable {
     let valArr = [];
 
     this.keyMap.forEach(pos => {
-      if(pos.length > 1){
+      if(pos){
         pos.forEach(subArr => {
-          valArr.push(subArr[1]);
+         if (!valArr.includes(subArr[1])) valArr.push(subArr[1]);
         });
       }else if(pos){
         valArr.push(pos[0][1]);
@@ -69,6 +69,9 @@ class HashTable {
 }
 
 const hash = new HashTable();
+hash.set('pudding', 2);
+hash.set('pudding', 2);
+hash.set('pudding', 2);
 hash.set('pudding', 2);
 hash.set('banana', 6);
 hash.set('apple', 8);
