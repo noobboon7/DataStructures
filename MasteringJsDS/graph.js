@@ -25,17 +25,51 @@ class Graph {
     }
     delete this.adjList[vtx];
   }
+
+  DFSRecursive(start){
+    let visited = {},
+        result = [];
+    const adjList = this.adjList;
+    
+    (function DFS(vertex){
+      if(!vertex) return null;
+
+      visited[vertex] = true;
+      result.push(vertex);
+      
+      adjList[vertex].forEach(neighbor => {
+        if(!visited[neighbor]) return DFS(neighbor);
+      });
+    })(start);
+    
+    return result;
+  }
 }
 const g = new Graph();
 
-g.addVertex("NYC");
-g.addVertex("Hawaii");
-g.addVertex("Tokyo");
-g.addEdge("NYC", "Hawaii");
-g.addEdge("Hawaii", "Tokyo");
-g.addEdge("NYC", "Tokyo");
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+g.addEdge("A", "B");
+g.addEdge("A", "C");
+g.addEdge("B", "D");
+g.addEdge("C", "E");
+g.addEdge("D", "E");
+g.addEdge("D", "F");
+g.addEdge("E", "F");
+console.log(g.DFSRecursive("A"));
+// g.addVertex("NYC");
+// g.addVertex("Hawaii");
+// g.addVertex("Tokyo");
+// g.addEdge("NYC", "Hawaii");
+// g.addEdge("Hawaii", "Tokyo");
+// g.addEdge("NYC", "Tokyo");
 // g.removeEdge("NYC", "Tokyo");
-g.removeVertex("Hawaii");
+// g.removeVertex("Hawaii");
+
 
 console.log(g);
 //////////////////////////////////// NOTES////////////////////////////////////
