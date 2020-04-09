@@ -66,6 +66,26 @@ class Graph {
     return results;
   }
   
+  BFSRecursive(start){
+    let queue =[start],
+        result = [],
+        visited ={},
+        vtx;
+    visited[start] = true;
+
+    while(queue.length){
+      vtx = queue.shift();
+      result.push(vtx);
+      
+      this.adjList[vtx].forEach(neighbor =>{
+        if(!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
 const g = new Graph();
 
@@ -82,8 +102,9 @@ g.addEdge("C", "E");
 g.addEdge("D", "E");
 g.addEdge("D", "F");
 g.addEdge("E", "F");
-console.log(g.DFSRecursive("A"));
-console.log(g.DFSIterative("A"));
+// console.log(g.DFSRecursive("A"));
+// console.log(g.DFSIterative("A"));
+console.log(g.BFSRecursive("A"));
 // g.addVertex("NYC");
 // g.addVertex("Hawaii");
 // g.addVertex("Tokyo");
