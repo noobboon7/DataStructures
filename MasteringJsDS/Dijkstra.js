@@ -32,14 +32,74 @@ class WeightedGraph {
     this.adjList[v2].push({node:v1, weight});
   }
 
+  dijkstra(v1,v2){   //(startingNode, endNode)
+    const nodes = new PriorityQueue(),
+          dist = {},
+          prev = {};
+    let smallest,
+			  path = [];
+
+    // build initial state for distance (dist)
+    for(let vtx in this.adjList){
+      if(vtx === v1){
+        dist[vtx] = 0;
+        nodes.enqueue(vtx, 0);
+      }else{
+        dist[vtx] = Infinity;
+        nodes.enqueue(vtx, Infinity);
+      }
+      prev[vtx] = null;
+    }
+
+    // as long as there is something to visit
+    while(nodes.values.lenght){
+      smallest = nodes.dequeue().val;
+      if(smallest === v2){       //done and return shortest path 
+        while(prev[smallest]){
+          path.push(smallest);
+          smallest = prev[smallest];
+        }
+        break;
+      } 
+
+      if(smallest || dist[smallest] !== Infinity){
+        for(let neighbor in this.adjList[smallest]){
+          let nextNode = this.adjList[smallest][neighbor],
+						candidate = dist[smallest] + nextNode.weight,
+						nextNeighbor = nextNode.node; //to compare weight values
+
+          if(candidate < dist[nextNeighbor]){
+            dist[nextNeighbor] = candidate;
+            prev[nextNeighbor] = smallest;
+            nodes.enqueue(nextNeighbor, candidate);
+          }
+
+        }
+      }
+    }
+    console.log(path);
+    return [...path, smallest].reverse();
+  }
+
 }
 
-const g = new WeightedGraph();
-g.addVertex("A");
-g.addVertex("B");
-g.addVertex("C");
-g.addEdge("A","B", 9);
-g.addEdge("A","C", 5);
-g.addEdge("B","C", 5);
+var graph = new WeightedGraph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
 
-console.log(g);
+graph.addEdge("A", "B", 4);
+graph.addEdge("A", "C", 2);
+graph.addEdge("B", "E", 3);
+graph.addEdge("C", "D", 2);
+graph.addEdge("C", "F", 4);
+graph.addEdge("D", "E", 3);
+graph.addEdge("D", "F", 1);
+graph.addEdge("E", "F", 1);
+console.log(graph.dijkstra("A", "E"));
+graph.dijkstra("A", "E"); //shortest path 
+
+console.log(graph);
