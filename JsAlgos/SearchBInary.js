@@ -11,6 +11,6 @@ function binarySearch(arr, el){
   return arr[middle] === el ? middle : -1;
 }
 
-const numArr =  [1,2,3,4,5,6,7,65,4,356,20,345,24,5876,345,35,88] //[...Array(30).keys()];
+const numArr = [...Array(30).keys()];
 
-console.log(binarySearch(numArr,88));
+console.log(binarySearch(numArr,20));
