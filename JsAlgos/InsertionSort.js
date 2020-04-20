@@ -1,5 +1,3 @@
-const swap = (arr, idx1, idx2) => [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]]; 
-
 const insertionSort = (arr) => {
   let cur, j, i;
 
@@ -16,3 +14,6 @@ const insertionSort = (arr) => {
 let randArr = [2, 6, 3, 7, 8, 1, 56, 456, 4, 3, 87, 43];
 
 console.log(insertionSort(randArr));
+
+// worst case On^2 
+// if arr is semi sorted then better...
