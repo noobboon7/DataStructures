@@ -30,4 +30,7 @@ const nArr = [5,32,34,6,21452,2,24,54 ,678,9,7,42234,5424,56,75324,542,52,3,1];
 const nArr2 = [5,32,56,542,52,3,1];
 
 // console.log(pivot(nArr));
-console.log(quickSort(nArr2));
+console.log(quickSort(nArr));
+///////////NOTES///////////
+// bigO O(log n + n) -> O(n) happen when recursion is done and compares the numbers
+// worst case if the array is sorted then you have o(n^2) 
