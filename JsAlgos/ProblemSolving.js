@@ -87,3 +87,20 @@ function maxSubArraySum(arr, num) {
 
 // console.log(maxSubArraySum([2,6,9,2,1,8,5,6,3],3));
 
+// divide and conquer
+function search(arr, val) {
+  let min = 0,
+  max = arr.length - 1,
+  middle;
+
+  while(min <= max){
+    middle = Math.round((min + max) / 2);
+    // let cur = arr[middle];
+
+    if(arr[middle] < val) min = middle + 1;
+    else if(arr[middle] > val) max = middle - 1;
+    else return middle +1; 
+  }
+  return -1;
+}
+console.log(search([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],17));
