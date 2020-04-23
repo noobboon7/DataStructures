@@ -16,5 +16,18 @@ function isAnagram(first, second) {
   return true;
 }
 
-console.log(isAnagram('iceman', 'cinema'));
 
+// Mulitiple pointer example 
+const zeroSum = (arr) => {
+  let left = 0,
+      right = arr.length -1,
+      sum;
+
+  while(left < right){
+    sum = arr[left] + arr[right];
+    if(sum === 0) return [arr[left], arr[right]];
+    else if(sum > 0) right--;
+    else left++;
+  }
+}
+console.log(zeroSum([-4,-3,-2,-1,0,1,2,3,10]));
