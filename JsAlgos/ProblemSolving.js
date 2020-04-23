@@ -53,4 +53,37 @@ const zeroSum = (arr) => {
 }
 // console.log(zeroSum([-4,-3,-2,-1,0,1,2,3,10]));
 
-// 
+// second example 
+const countUniqueValues  = (arr) => {
+  if(arr.length === 0) return 0;
+  let i = 0;
+  for(let k = 1; k < arr.length; k++){
+    if(arr[i] !== arr[k]){
+      i++;
+      arr[i] = arr[k];
+    }
+  }
+  return i + 1;
+};
+
+// console.log(countUniqueValues([1,1,1,1,1,2,2,2,3,3,4,4,4,5,6,6,6,6,7,7,7,8]));
+
+// sliding window approach 
+function maxSubArraySum(arr, num) {
+  let maxSum = 0,
+      tempSum = 0;
+  if(arr.length < num) return null; 
+  // add n consecutive numbers in arr 
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
+}
+
+// console.log(maxSubArraySum([2,6,9,2,1,8,5,6,3],3));
+
