@@ -22,7 +22,13 @@ class Aarray {
 
   delete(idx){
     const item =this.data[idx];
-    
+    this.shiftItem(idx)
+  }
+  shiftItems(idx){
+    for (let i = idx; i < this.length - 1; i++) {
+      this.data[i] = this.data[i+1];
+    }
+    // delete this.data[this.length - 1]
   }
 }
 
@@ -30,5 +36,6 @@ const list = new Aarray();
 list.push('hello');
 list.push('world');
 list.push('!!!');
-list.pop();
+// list.pop();
+list.delete(2)
 console.log(list);
