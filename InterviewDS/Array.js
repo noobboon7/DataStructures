@@ -22,7 +22,8 @@ class Aarray {
 
   delete(idx){
     const item =this.data[idx];
-    this.shiftItem(idx)
+    this.shiftItem(idx);
+    return item;
   }
   shiftItems(idx){
     for (let i = idx; i < this.length - 1; i++) {
