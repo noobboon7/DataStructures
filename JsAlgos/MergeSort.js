@@ -42,7 +42,7 @@ const nArr2 = [5,32,34,6,21452,2,24,54 ,678,9,7,42234,5424,56,75324,542,52,3,1];
 
 //time complexity is O(n log n) -> O(log n) is the amount of arrays its split into, 
 // until you reach a single element into one array  
-// -> O(n) is the amount of arrays you have to compair to merge 
+// -> O(n) is the amount of arrays you have to compare to merge 
 
 //space complexity 0(n) -> the amount of arrays its going to store in memory 
 // with grow on how large the array is
