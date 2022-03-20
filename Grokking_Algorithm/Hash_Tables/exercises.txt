@@ -1,0 +1,15 @@
+Hash Table exercises 
+--------------------------------------------------------------------------------
+5.1 Consistent because it return 1 for all  
+
+5.2 NOT consistent because it return a random number each time 
+
+5.3 NOT Consistent 
+
+5.4 Consistent because it returns length of given string
+
+5.5 Option C and D 
+
+5.6 Option B and D 
+
+5.7 Option B,C,and D
