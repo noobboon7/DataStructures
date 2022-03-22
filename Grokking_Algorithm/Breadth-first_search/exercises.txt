@@ -1,0 +1,13 @@
+Breadth-first exercises
+--------------------------------------------------------------------------------
+shortest path from A to B
+
+  6.1  length of shortest path is 2
+
+  6.2 length of shortest path is 2 -- cab -> cat -> bat 
+
+  6.3 A invalid, B valid, Column C is invalid because you need to be awake before any action 
+
+  6.4 wake up -> exercise -> shower -> Get Dressed -> brush teeth -> pack lunch  -> eat breakfast
+  
+  6.5 A and C are valid tree structures, but B is not.
