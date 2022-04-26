@@ -1,0 +1,7 @@
+In each of these graphs, what is the weight of the shortest path
+from start to finish?
+A — 8; 
+B — 60; 
+C — Trick question. No shortest path is possible (negative-weight cycle).
+
+For negative-weight cycle, we can use bellman-ford algorithm
